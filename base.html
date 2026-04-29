@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Artistic Ally — Handcrafted with Intention</title>
+  <meta name="description" content="Artistic Ally — premium handmade DIY kits, jewellery, resin art and candles. Order directly via socials."/>
+  <meta name="theme-color" content="#f0ead6"/>
+  <link rel="stylesheet" href="style.css"/>
+  <!-- FIX #1 — Google Fonts (was missing entirely) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- FIX #5 — Skip link was missing -->
+  <a href="#main" class="sr-only">Skip to content</a>
+
+  <!-- LOGO -->
+  <a href="landing.html" id="brand-logo" class="brand-logo" aria-label="Artistic Ally — Home">
+    <!-- FIX #7 — was width="52" height="52", CSS uses 72px -->
+    <img src="assets/logo.png" alt="Artistic Ally logo"
+         width="72" height="72" loading="eager" decoding="async"/>
+  </a>
+
+  <!-- FIX #9 — Brand title was missing entirely -->
+  <div class="brand-title-fixed" aria-hidden="true">
+    <span class="brand-title-line1">Artistic</span>
+    <span class="brand-title-line2">Ally</span>
+  </div>
+
+  <!-- Paper plane container -->
+  <div id="plane-container" aria-hidden="true"></div>
+
+  <!-- Envelope overlay -->
+  <div id="envelope-overlay" class="envelope-overlay"
+       aria-hidden="true" role="dialog" aria-label="A message for you">
+    <div class="envelope-wrap">
+      <div class="envelope" id="envelope">
+        <div class="envelope-flap" id="envelope-flap"></div>
+        <div class="envelope-body">
+          <div class="envelope-letter" id="envelope-letter">
+            <p class="fortune-eyebrow">✦ A little note for you ✦</p>
+            <p class="fortune-text" id="fortune-text"></p>
+            <p class="fortune-sign">— Artistic Ally</p>
+          </div>
+        </div>
+      </div>
+      <button class="envelope-close" id="envelope-close" aria-label="Close">✕</button>
+    </div>
+  </div>
+
+  <!-- NAV — FIX #3: added theme-toggle + hamburger -->
+  <nav class="nav-outer" aria-label="Main navigation">
+    <div class="nav-pill">
+      <div class="nav-links">
+        <!-- FIX #8: set active on whichever page this is -->
+        <a href="landing.html">Home</a>
+        <a href="products.html">Shop</a>
+        <a href="landing.html#about">About</a>
+        <a href="landing.html#contact">Contact</a>
+      </div>
+      <a href="products.html" class="nav-cta">Shop Now</a>
+      <button id="theme-toggle" aria-label="Switch to dark mode" class="theme-toggle-btn">
+        <svg id="icon-sun" width="16" height="16" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="5"/>
+          <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+        </svg>
+        <svg id="icon-moon" width="16" height="16" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2" style="display:none">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+      <button class="hamburger" id="hamburger"
+              aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- FIX #4 — Mobile menu was missing entirely -->
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <a href="landing.html">Home</a>
+    <a href="products.html">Shop</a>
+    <a href="landing.html#about">About</a>
+    <a href="landing.html#contact">Contact</a>
+    <a href="products.html" class="mobile-menu-cta">Shop Now</a>
+  </div>
+
+  <!-- FIX #6 — main wrapper was missing -->
+  <main id="main">
+    <!-- Page-specific content goes here -->
+  </main>
+
+  <!-- Footer wave -->
+  <div class="footer-wave-wrap" aria-hidden="true">
+    <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,40 C200,80 400,0 600,38 C800,76 1000,4 1200,36 C1320,56 1380,28 1440,38 L1440,80 L0,80 Z"
+            fill="#1f2318"/>
+    </svg>
+  </div>
+
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <div class="footer-brand-name">Artistic Ally</div>
+          <p class="footer-brand-desc">Handcrafted with intention. Order directly through Instagram, WhatsApp, or Telegram — no cart needed.</p>
+          <div class="footer-socials">
+            <a href="#" class="footer-social-btn" aria-label="Instagram">IG</a>
+            <a href="#" class="footer-social-btn" aria-label="WhatsApp">WA</a>
+            <a href="#" class="footer-social-btn" aria-label="Telegram">TG</a>
+          </div>
+        </div>
+        <div>
+          <p class="footer-col-title">Explore</p>
+          <div class="footer-links">
+            <a href="landing.html">Home</a>
+            <a href="products.html">All Products</a>
+            <a href="landing.html#about">Our Story</a>
+          </div>
+        </div>
+        <div>
+          <p class="footer-col-title">Collections</p>
+          <div class="footer-links">
+            <a href="products.html">Jewellery</a>
+            <a href="products.html">Resin Art</a>
+            <a href="products.html">Candles</a>
+            <a href="products.html">Gift Kits</a>
+          </div>
+        </div>
+        <div>
+          <p class="footer-col-title">Order</p>
+          <div class="footer-links">
+            <a href="#">Instagram DM</a>
+            <a href="#">WhatsApp</a>
+            <a href="#">Telegram</a>
+            <a href="#">Email us</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Artistic Ally. All rights reserved.</span>
+        <span>Made with care in Mumbai 🌿</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

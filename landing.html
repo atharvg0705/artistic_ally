@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Artistic Ally — Handcrafted with Intention</title>
+  <meta name="description" content="Artistic Ally — premium handmade DIY kits, jewellery, resin art and candles. Order directly via socials."/>
+  <meta name="theme-color" content="#f0ead6"/>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <a href="#main" class="sr-only">Skip to content</a>
+
+  <!-- ── LOGO ─────────────────────────────────────────────── -->
+  <a href="landing.html" id="brand-logo" class="brand-logo" aria-label="Artistic Ally — Home">
+    <img src="assets/logo.png" alt="Artistic Ally logo" width="80" height="80" loading="eager" decoding="async"/>
+  </a>
+
+  <!-- ── BRAND TITLE ───────────────────────────────────────── -->
+  <div class="brand-title-fixed" aria-hidden="true">
+    <span class="brand-title-line1">Artistic</span>
+    <span class="brand-title-line2">Ally</span>
+  </div>
+
+  <!-- ── PAPER PLANE CONTAINER ────────────────────────────── -->
+  <div id="plane-container" aria-hidden="true"></div>
+
+  <!-- ── ENVELOPE OVERLAY ─────────────────────────────────── -->
+  <div id="envelope-overlay" class="envelope-overlay" aria-hidden="true" role="dialog" aria-label="A message for you">
+    <div class="envelope-wrap">
+      <div class="envelope" id="envelope">
+        <div class="envelope-flap" id="envelope-flap"></div>
+        <div class="envelope-body">
+          <div class="envelope-letter" id="envelope-letter">
+            <p class="fortune-eyebrow">✦ A little note for you ✦</p>
+            <p class="fortune-text" id="fortune-text"></p>
+            <p class="fortune-sign">— Artistic Ally</p>
+          </div>
+        </div>
+      </div>
+      <button class="envelope-close" id="envelope-close" aria-label="Close">✕</button>
+    </div>
+  </div>
+
+  <!-- ── NAV ──────────────────────────────────────────────── -->
+  <nav class="nav-outer" aria-label="Main navigation">
+    <div class="nav-pill">
+      <div class="nav-links">
+        <a href="landing.html" class="active">Home</a>
+        <a href="products.html">Shop</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <a href="products.html" class="nav-cta">Shop Now</a>
+      <button id="theme-toggle" aria-label="Switch to dark mode" class="theme-toggle-btn">
+        <svg id="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        <svg id="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ── MOBILE MENU ───────────────────────────────────────── -->
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <a href="landing.html" class="active">Home</a>
+    <a href="products.html">Shop</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+    <a href="products.html" class="mobile-menu-cta">Shop Now</a>
+  </div>
+
+  <main id="main">
+
+    <!-- ── HERO ─────────────────────────────────────────────── -->
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-bg-grain"></div>
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <p class="hero-eyebrow reveal">Small batch · Handmade · Mumbai</p>
+          <h1 class="hero-title reveal reveal-delay-1">
+            Made<br/><em>with hands,</em><br/>worn with<br/>soul.
+          </h1>
+          <p class="hero-sub reveal reveal-delay-2">Artisan DIY kits, original jewellery and curated handmade pieces — all orderable directly through a single message.</p>
+          <div class="hero-actions reveal reveal-delay-3">
+            <a href="products.html" class="btn-primary">Explore Collection</a>
+            <a href="#about" class="btn-ghost">Our story</a>
+          </div>
+        </div>
+        <div class="hero-visual reveal reveal-delay-2">
+          <div class="hero-3d-card" role="img" aria-label="Featured product — The Hibiscus Ring II">
+            <div class="hero-3d-inner">
+              <img src="assets/hero.jpg"
+                alt="Featured product — artisan gold rings on natural background"
+                width="600" height="780" loading="eager" decoding="async"/>
+              <div class="hero-card-label">
+                <h3>The Hibiscus Ring II</h3>
+                <p>New drop · Rings</p>
+              </div>
+            </div>
+          </div>
+          <div class="hero-float-pill" aria-hidden="true">New drop ✦</div>
+          <div class="hero-float-badge" aria-hidden="true">Handcrafted · Limited</div>
+        </div>
+      </div>
+      <div class="hero-scroll-hint" aria-hidden="true">
+        <span>Scroll</span>
+        <div class="hero-scroll-dot"></div>
+      </div>
+    </section>
+
+    <!-- ── CAROUSEL ─────────────────────────────────────────── -->
+    <section class="carousel-section" id="works" aria-label="Latest works">
+      <div class="container">
+        <div class="carousel-header-row">
+          <div>
+            <p class="carousel-eyebrow reveal">Our latest works</p>
+            <h2 class="carousel-title reveal reveal-delay-1">
+              <em>We tried to design</em>
+              <strong>OUR WORKS</strong>
+            </h2>
+          </div>
+          <p class="carousel-meta reveal reveal-delay-2">A statement + simplistic style that helps create a look that's as unique as you are. Each piece is small-batch and handmade.</p>
+        </div>
+        <div class="carousel-track-wrap">
+          <div class="carousel-track" role="list">
+            <article class="carousel-item" role="listitem">
+              <img src="https://picsum.photos/seed/aa-ring-1/400/540" alt="The Roseline Ring" width="400" height="540" loading="lazy"/>
+              <div class="carousel-item-label">
+                <span class="carousel-item-tag">Rings</span>
+                <h3 class="carousel-item-name">The Roseline Ring</h3>
+              </div>
+            </article>
+            <article class="carousel-item" role="listitem">
+              <img src="https://picsum.photos/seed/aa-earring-1/400/540" alt="The Zoe Earrings" width="400" height="540" loading="lazy"/>
+              <div class="carousel-item-label">
+                <span class="carousel-item-tag">Earrings</span>
+                <h3 class="carousel-item-name">The Zoe Earrings</h3>
+              </div>
+            </article>
+            <article class="carousel-item active-card" role="listitem">
+              <img src="https://picsum.photos/seed/aa-hibiscus/400/540" alt="The Hibiscus Ring II" width="400" height="540" loading="lazy"/>
+              <div class="carousel-item-label">
+                <span class="carousel-item-tag">Rings</span>
+                <h3 class="carousel-item-name">The Hibiscus Ring II</h3>
+              </div>
+            </article>
+            <article class="carousel-item" role="listitem">
+              <img src="https://picsum.photos/seed/aa-hoops/400/540" alt="The Chubby Hoops" width="400" height="540" loading="lazy"/>
+              <div class="carousel-item-label">
+                <span class="carousel-item-tag">Earrings</span>
+                <h3 class="carousel-item-name">The Chubby Hoops</h3>
+              </div>
+            </article>
+            <article class="carousel-item" role="listitem">
+              <img src="https://picsum.photos/seed/aa-chain/400/540" alt="The Atlas Chain" width="400" height="540" loading="lazy"/>
+              <div class="carousel-item-label">
+                <span class="carousel-item-tag">Necklaces</span>
+                <h3 class="carousel-item-name">The Atlas Chain</h3>
+              </div>
+            </article>
+          </div>
+        </div>
+        <div class="carousel-controls">
+          <button class="carousel-btn prev" aria-label="Previous">←</button>
+          <button class="carousel-btn next" aria-label="Next">→</button>
+          <div class="carousel-dots" role="tablist" aria-label="Carousel position">
+            <div class="carousel-dot active" role="tab" aria-selected="true"></div>
+            <div class="carousel-dot" role="tab" aria-selected="false"></div>
+            <div class="carousel-dot" role="tab" aria-selected="false"></div>
+            <div class="carousel-dot" role="tab" aria-selected="false"></div>
+            <div class="carousel-dot" role="tab" aria-selected="false"></div>
+          </div>
+          <div class="carousel-progress" aria-hidden="true">
+            <div class="carousel-progress-bar" style="width:20%"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── ABOUT ─────────────────────────────────────────────── -->
+    <section class="about-section" id="about" aria-label="About Artistic Ally">
+      <div class="about-bg-blob" aria-hidden="true"></div>
+      <div class="container about-inner">
+        <div class="about-visual reveal">
+          <div class="about-img-main">
+            <img src="https://picsum.photos/seed/aa-about-main/620/760" alt="Artisan crafting a piece by hand" width="620" height="760" loading="lazy"/>
+          </div>
+          <div class="about-img-float">
+            <img src="https://picsum.photos/seed/aa-about-float/400/400" alt="Close up of handmade jewellery detail" width="400" height="400" loading="lazy"/>
+          </div>
+          <div class="about-stat-pill">Est. 2024 · Mumbai</div>
+        </div>
+        <div class="about-text">
+          <p class="about-eyebrow reveal">The story behind the brand</p>
+          <h2 class="about-title reveal reveal-delay-1">
+            Art you can<br/><em>hold, wear</em><br/>and feel.
+          </h2>
+          <p class="about-body reveal reveal-delay-2">Artistic Ally was born from a simple frustration: either you find mass-produced jewellery that looks like everyone else's, or you spend a fortune on true craft. We bridge that gap — small batch, genuinely handmade, and ordered through a simple conversation, not a checkout pipeline.</p>
+          <div class="about-values reveal reveal-delay-3">
+            <div class="about-value">
+              <div class="about-value-icon">🌿</div>
+              <p class="about-value-title">Slow craft</p>
+              <p class="about-value-desc">Every piece is made by hand in limited quantities. No factories, no shortcuts.</p>
+            </div>
+            <div class="about-value">
+              <div class="about-value-icon">✦</div>
+              <p class="about-value-title">Custom orders</p>
+              <p class="about-value-desc">Have an idea? Message us and we'll build it with you personally.</p>
+            </div>
+            <div class="about-value">
+              <div class="about-value-icon">📦</div>
+              <p class="about-value-title">Gift-ready</p>
+              <p class="about-value-desc">Every order ships in premium recyclable packaging, ready to gift.</p>
+            </div>
+            <div class="about-value">
+              <div class="about-value-icon">💬</div>
+              <p class="about-value-title">Chat-first</p>
+              <p class="about-value-desc">Order on Instagram, WhatsApp, or Telegram. Simple and personal.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── FOOTER WAVE ───────────────────────────────────────── -->
+  <div class="footer-wave-wrap" aria-hidden="true">
+    <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,40 C200,80 400,0 600,38 C800,76 1000,4 1200,36 C1320,56 1380,28 1440,38 L1440,80 L0,80 Z" fill="#1f2318"/>
+    </svg>
+  </div>
+
+  <!-- ── FOOTER ────────────────────────────────────────────── -->
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <div class="footer-brand-name">Artistic Ally</div>
+          <p class="footer-brand-desc">Handcrafted with intention. Order directly through Instagram, WhatsApp, or Telegram — no cart needed.</p>
+          <div class="footer-socials">
+            <a href="#" class="footer-social-btn" aria-label="Instagram">IG</a>
+            <a href="#" class="footer-social-btn" aria-label="WhatsApp">WA</a>
+            <a href="#" class="footer-social-btn" aria-label="Telegram">TG</a>
+          </div>
+        </div>
+        <div>
+          <p class="footer-col-title">Explore</p>
+          <div class="footer-links">
+            <a href="landing.html">Home</a>
+            <a href="products.html">All Products</a>
+            <a href="#about">Our Story</a>
+          </div>
+        </div>
+        <div>
+          <p class="footer-col-title">Collections</p>
+          <div class="footer-links">
+            <a href="products.html">Jewellery</a>
+            <a href="products.html">Resin Art</a>
+            <a href="products.html">Candles</a>
+            <a href="products.html">Gift Kits</a>
+          </div>
+        </div>
+        <div>
+          <p class="footer-col-title">Order</p>
+          <div class="footer-links">
+            <a href="#">Instagram DM</a>
+            <a href="#">WhatsApp</a>
+            <a href="#">Telegram</a>
+            <a href="#">Email us</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Artistic Ally. All rights reserved.</span>
+        <span>Made with care in Mumbai 🌿</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
