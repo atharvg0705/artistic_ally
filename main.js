@@ -2,7 +2,6 @@
    ARTISTIC ALLY — main.js
    ============================================================ */
 
-
 /* ── THEME TOGGLE ───────────────────────────────────────────── */
 (function() {
   const btn  = document.getElementById('theme-toggle');
@@ -11,9 +10,7 @@
   const html = document.documentElement;
   let dark = false;
 
-
-  html.setAttribute('data-theme', 'light'); // force light on load
-
+  html.setAttribute('data-theme', 'light');
 
   if (btn) {
     btn.addEventListener('click', () => {
@@ -25,7 +22,6 @@
     });
   }
 })();
-
 
 
 /* ── FORTUNE MESSAGES ──────────────────────────────────────── */
@@ -43,71 +39,37 @@ const FORTUNES = [
 ];
 
 
-
 /* ── ELEMENT REFS ───────────────────────────────────────────── */
-const brandLogo      = document.getElementById('brand-logo');
-const planeContainer = document.getElementById('plane-container');
-const overlay        = document.getElementById('envelope-overlay');
-const envelope       = document.getElementById('envelope');
-const fortuneEl      = document.getElementById('fortune-text');
-const closeBtn       = document.getElementById('envelope-close');
+const brandLogo = document.getElementById('brand-logo');
+const overlay   = document.getElementById('envelope-overlay');
+const envelope  = document.getElementById('envelope');
+const fortuneEl = document.getElementById('fortune-text');
+const closeBtn  = document.getElementById('envelope-close');
 
 
+/* ── LOGO POP TRANSITION ────────────────────────────────────── */
+function triggerLogoPop() {
+  if (overlay?.classList.contains('open')) return;
 
-/* ── PAPER PLANE SVG ────────────────────────────────────────── */
-const PLANE_SVG = `
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="32" height="32">
-  <polygon points="2,38 20,2 38,38" fill="#1f2318" opacity="0.08"/>
-  <polygon points="2,38 20,2 20,28" fill="#5c6b4a"/>
-  <polygon points="38,38 20,2 20,28" fill="#8a9a6b"/>
-  <polygon points="2,38 20,28 20,38" fill="#3d4d2e"/>
-  <polygon points="38,38 20,28 20,38" fill="#6b8050"/>
-  <line x1="20" y1="2" x2="20" y2="38" stroke="#1f2318" stroke-width="0.6" opacity="0.3"/>
-</svg>`;
+  const pop = document.createElement('div');
+  pop.className = 'logo-pop-overlay';
+  pop.innerHTML = `
+    <div class="logo-pop-ring logo-pop-ring--1"></div>
+    <div class="logo-pop-ring logo-pop-ring--2"></div>
+    <div class="logo-pop-ring logo-pop-ring--3"></div>
+    <div class="logo-pop-logo">
+      <img src="assets/logo.png" alt="" />
+    </div>
+  `;
+  document.body.appendChild(pop);
 
+  requestAnimationFrame(() => pop.classList.add('active'));
 
-
-/* ── SPAWN SINGLE PLANE ─────────────────────────────────────── */
-function spawnPlane(originX, originY) {
-  if (!planeContainer) return;
-  const wrapper = document.createElement('div');
-  wrapper.className = 'paper-plane-wrap';
-  wrapper.innerHTML = PLANE_SVG;
-
-
-  const angle = Math.random() * 360;
-  const dist  = 110 + Math.random() * 150;
-  const rad   = (angle * Math.PI) / 180;
-  const dx    = Math.cos(rad) * dist;
-  const dy    = Math.sin(rad) * dist;
-  const dr    = -60 + Math.random() * 120;
-
-
-  wrapper.style.setProperty('--dx', `${dx}px`);
-  wrapper.style.setProperty('--dy', `${dy}px`);
-  wrapper.style.setProperty('--dr', `${dr}deg`);
-  wrapper.style.setProperty('--face', `${(angle + 90) % 360}deg`);
-  wrapper.style.left = originX - 16 + 'px';
-  wrapper.style.top  = originY - 16 + 'px';
-
-
-  planeContainer.appendChild(wrapper);
-  setTimeout(() => wrapper.remove(), 2800);
+  setTimeout(() => {
+    pop.classList.add('fade-out');
+    setTimeout(() => pop.remove(), 600);
+  }, 1800);
 }
-
-
-
-/* ── BURST MULTIPLE PLANES ──────────────────────────────────── */
-function burstPlanes(count = 7) {
-  if (!brandLogo || !planeContainer) return;
-  const rect = brandLogo.getBoundingClientRect();
-  const cx   = rect.left + rect.width  / 2;
-  const cy   = rect.top  + rect.height / 2;
-  for (let i = 0; i < count; i++) {
-    setTimeout(() => spawnPlane(cx, cy), i * 120);
-  }
-}
-
 
 
 /* ── ENVELOPE OPEN / CLOSE ──────────────────────────────────── */
@@ -119,7 +81,6 @@ function openEnvelope() {
   setTimeout(() => envelope.classList.add('opened'), 180);
 }
 
-
 function closeEnvelope() {
   if (!overlay || !envelope) return;
   envelope.classList.remove('opened');
@@ -130,45 +91,32 @@ function closeEnvelope() {
 }
 
 
-
 /* ── LOGO INTERACTIONS ──────────────────────────────────────── */
 if (brandLogo) {
 
-
-  brandLogo.addEventListener('mouseenter', () => burstPlanes(7));
-
-
+  // Single click — logo pop
   let clickTimer = null;
-
-
   brandLogo.addEventListener('click', e => {
     e.preventDefault();
     clearTimeout(clickTimer);
-    clickTimer = setTimeout(() => {
-      window.location.href = brandLogo.getAttribute('href') || '#';
-    }, 260);
+    clickTimer = setTimeout(() => triggerLogoPop(), 180);
   });
 
-
+  // Double click — open envelope
   brandLogo.addEventListener('dblclick', e => {
     e.preventDefault();
     clearTimeout(clickTimer);
-    burstPlanes(10);
-    setTimeout(openEnvelope, 200);
+    openEnvelope();
   });
 
-
+  // Long press on mobile — open envelope
   let pressTimer = null;
   brandLogo.addEventListener('touchstart', () => {
-    pressTimer = setTimeout(() => {
-      burstPlanes(8);
-      openEnvelope();
-    }, 600);
+    pressTimer = setTimeout(() => openEnvelope(), 600);
   }, { passive: true });
   brandLogo.addEventListener('touchend',  () => clearTimeout(pressTimer));
   brandLogo.addEventListener('touchmove', () => clearTimeout(pressTimer));
 }
-
 
 
 /* ── CLOSE ENVELOPE ─────────────────────────────────────────── */
@@ -181,7 +129,6 @@ document.addEventListener('keydown', e => {
 });
 
 
-
 /* ── NAV SCROLL EFFECT ──────────────────────────────────────── */
 const navPill = document.querySelector('.nav-pill');
 if (navPill) {
@@ -189,7 +136,6 @@ if (navPill) {
     navPill.classList.toggle('scrolled', window.scrollY > 40);
   }, { passive: true });
 }
-
 
 
 /* ── SCROLL REVEALS ─────────────────────────────────────────── */
@@ -205,7 +151,6 @@ if (revealEls.length) {
   }, { threshold: 0.12 });
   revealEls.forEach(el => observer.observe(el));
 }
-
 
 
 /* ── 3D TILT CARD ───────────────────────────────────────────── */
@@ -224,7 +169,6 @@ if (tiltCard && tiltInner) {
 }
 
 
-
 /* ── CAROUSEL ───────────────────────────────────────────────── */
 const track   = document.querySelector('.carousel-track');
 const items   = document.querySelectorAll('.carousel-item');
@@ -233,11 +177,9 @@ const nextBtn = document.querySelector('.carousel-btn.next');
 const dots    = document.querySelectorAll('.carousel-dot');
 const progBar = document.querySelector('.carousel-progress-bar');
 
-
 if (track && items.length) {
   let current = 0;
   const total = items.length;
-
 
   function goTo(index) {
     current = (index + total) % total;
@@ -245,21 +187,17 @@ if (track && items.length) {
     const gap   = parseFloat(getComputedStyle(track).gap) || 16;
     track.style.transform = `translateX(-${current * (itemW + gap)}px)`;
 
-
     dots.forEach((d, i) => {
       d.classList.toggle('active', i === current);
       d.setAttribute('aria-selected', i === current);
     });
 
-
     if (progBar) progBar.style.width = `${((current + 1) / total) * 100}%`;
   }
-
 
   if (prevBtn) prevBtn.addEventListener('click', () => goTo(current - 1));
   if (nextBtn) nextBtn.addEventListener('click', () => goTo(current + 1));
   dots.forEach((d, i) => d.addEventListener('click', () => goTo(i)));
-
 
   let autoTimer = setInterval(() => goTo(current + 1), 4000);
   track.addEventListener('mouseenter', () => clearInterval(autoTimer));
@@ -267,18 +205,18 @@ if (track && items.length) {
     autoTimer = setInterval(() => goTo(current + 1), 4000);
   });
 
-
   let startX = 0;
   track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
-  track.addEventListener('touchend',   e => {
+  track.addEventListener('touchend', e => {
     const diff = startX - e.changedTouches[0].clientX;
     if (Math.abs(diff) > 50) goTo(current + (diff > 0 ? 1 : -1));
   });
 }
-// ── HAMBURGER ─────────────────────────────────────────────
-const hamburger = document.getElementById('hamburger');
-const mobileMenu = document.getElementById('mobile-menu');
 
+
+/* ── HAMBURGER ──────────────────────────────────────────────── */
+const hamburger  = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobile-menu');
 
 if (hamburger && mobileMenu) {
   hamburger.addEventListener('click', () => {
@@ -288,8 +226,6 @@ if (hamburger && mobileMenu) {
     mobileMenu.setAttribute('aria-hidden', !isOpen);
   });
 
-
-  // Close when a link is tapped
   mobileMenu.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       hamburger.classList.remove('open');
@@ -298,12 +234,29 @@ if (hamburger && mobileMenu) {
     });
   });
 
-
-  // Close on outside tap
   document.addEventListener('click', (e) => {
     if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
       hamburger.classList.remove('open');
       mobileMenu.classList.remove('open');
     }
   });
+}
+
+
+/* ── FLOAT IMAGE FLIPPER ────────────────────────────────────── */
+const flipper = document.getElementById('float-flipper');
+if (flipper) {
+  let flipTimer = null;
+
+  function triggerFlip() {
+    if (flipTimer) return;
+    flipper.classList.add('peeking');
+    flipTimer = setTimeout(() => {
+      flipper.classList.remove('peeking');
+      flipTimer = null;
+    }, 2000);
+  }
+
+  flipper.addEventListener('mouseenter', triggerFlip);
+  flipper.addEventListener('click', triggerFlip);
 }
