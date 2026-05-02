@@ -141,28 +141,113 @@ a:focus-visible, button:focus-visible {
   from { opacity: 0; transform: translateX(-12px); filter: blur(4px); }
   to   { opacity: 1; transform: translateX(0);     filter: blur(0); }
 }
-
-/* ── PAPER PLANE ─────────────────────────────────────────── */
-.paper-plane-wrap {
+/* ── ABOUT VIDEO ────────────────────────────────────────── */
+.about-img-main--video {
+  position: relative;
+  overflow: hidden;
+  border-radius: inherit;
+}
+/* ── HERO CARD VIDEO ────────────────────────────────────── */
+.hero-card-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  border-radius: inherit;
+}
+.about-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  border-radius: inherit;
+}
+/* ── LOGO POP OVERLAY ───────────────────────────────────── */
+.logo-pop-overlay {
   position: fixed;
-  width: 32px;
-  height: 32px;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   pointer-events: none;
-  z-index: 9999;
-  transform-origin: center;
-  animation: plane-fold-fly 2.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  background: transparent;
+  transition: opacity 0.6s ease;
 }
-.paper-plane-wrap svg { width: 100%; height: 100%; transform: rotate(var(--face, 0deg)); transform-origin: center; }
 
-@keyframes plane-fold-fly {
-  0%  { opacity:0; transform:translate(0,0) scale(0.1) rotate(0deg); }
-  10% { opacity:1; transform:translate(0,0) scale(1.3) rotate(calc(var(--dr,0deg)*0.1)); }
-  18% { transform:translate(0,0) scale(0.85) rotate(calc(var(--dr,0deg)*0.2)); }
-  28% { transform:translate(calc(var(--dx,0px)*0.06),calc(var(--dy,0px)*0.06)) scale(1.05) rotate(calc(var(--dr,0deg)*0.3)); opacity:1; }
-  55% { transform:translate(calc(var(--dx,0px)*0.55),calc(var(--dy,0px)*0.45)) scale(0.9) rotate(calc(var(--dr,0deg)*0.7)); opacity:1; }
-  80% { transform:translate(calc(var(--dx,0px)*0.88),calc(var(--dy,0px)*0.82)) scale(0.65) rotate(calc(var(--dr,0deg)*0.9)); opacity:0.7; }
-  100%{ transform:translate(var(--dx,0px),var(--dy,0px)) scale(0.3) rotate(var(--dr,0deg)); opacity:0; }
+.logo-pop-overlay.fade-out { opacity: 0; }
+
+/* Expanding rings */
+.logo-pop-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1.5px solid rgba(138,154,107,0.5);
+  transform: scale(0);
+  opacity: 0;
+  transition: none;
 }
+
+.logo-pop-ring--1 { width: 120px; height: 120px; }
+.logo-pop-ring--2 { width: 220px; height: 220px; border-color: rgba(138,154,107,0.3); }
+.logo-pop-ring--3 { width: 340px; height: 340px; border-color: rgba(138,154,107,0.15); }
+
+.logo-pop-overlay.active .logo-pop-ring--1 {
+  animation: ring-expand 1.6s cubic-bezier(0.16,1,0.3,1) forwards;
+}
+.logo-pop-overlay.active .logo-pop-ring--2 {
+  animation: ring-expand 1.6s cubic-bezier(0.16,1,0.3,1) 0.1s forwards;
+}
+.logo-pop-overlay.active .logo-pop-ring--3 {
+  animation: ring-expand 1.6s cubic-bezier(0.16,1,0.3,1) 0.2s forwards;
+}
+
+/* Logo itself */
+.logo-pop-logo {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  overflow: hidden;
+  transform: scale(0) rotate(-15deg);
+  opacity: 0;
+  box-shadow: 0 20px 60px rgba(31,35,24,0.25);
+  transition: none;
+}
+
+.logo-pop-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.logo-pop-overlay.active .logo-pop-logo {
+  animation: logo-pop-in 1.8s cubic-bezier(0.16,1,0.3,1) forwards;
+}
+
+@keyframes ring-expand {
+  0%   { transform: scale(0); opacity: 0.8; }
+  60%  { opacity: 0.6; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
+@keyframes logo-pop-in {
+  0%   { transform: scale(0) rotate(-15deg); opacity: 0; }
+  35%  { transform: scale(1.15) rotate(4deg); opacity: 1; }
+  55%  { transform: scale(0.95) rotate(-2deg); }
+  70%  { transform: scale(1.05) rotate(1deg); }
+  85%  { transform: scale(1) rotate(0deg); opacity: 1; }
+  100% { transform: scale(1.8) rotate(0deg); opacity: 0; }
+}
+
+/* Dark mode rings */
+[data-theme="dark"] .logo-pop-ring {
+  border-color: rgba(212,197,169,0.4);
+}
+[data-theme="dark"] .logo-pop-ring--2 { border-color: rgba(212,197,169,0.2); }
+[data-theme="dark"] .logo-pop-ring--3 { border-color: rgba(212,197,169,0.1); }
+.paper-plane-wrap svg { width: 100%; height: 100%; transform: rotate(var(--face, 0deg)); transform-origin: center; }
 
 #plane-container {
   position: fixed;
@@ -653,6 +738,18 @@ a:focus-visible, button:focus-visible {
 [data-theme="dark"] .theme-toggle-btn    { color: #c8bfa8; border-color: rgba(138,154,107,0.35); }
 [data-theme="dark"] .hamburger span      { background: #c8bfa8; }
 
+/* ── Carousel dark mode ── */
+[data-theme="dark"] .carousel-section        { background: #141710; }
+[data-theme="dark"] .carousel-title          { color: #f0ead6; }
+[data-theme="dark"] .carousel-eyebrow        { color: #8a9a6b; }
+[data-theme="dark"] .carousel-meta           { color: rgba(240,234,214,0.55); }
+[data-theme="dark"] .carousel-item-name      { color: #f0ead6; }
+[data-theme="dark"] .carousel-btn            { color: #f0ead6; border-color: rgba(240,234,214,0.2); }
+[data-theme="dark"] .carousel-btn:hover      { background: #5c6b4a; border-color: #5c6b4a; }
+[data-theme="dark"] .carousel-dot            { background: rgba(240,234,214,0.25); }
+[data-theme="dark"] .carousel-dot.active     { background: #d4c5a9; }
+[data-theme="dark"] .carousel-progress       { background: rgba(240,234,214,0.1); }
+[data-theme="dark"] .carousel-progress-bar   { background: #d4c5a9; }
 /* ── THEME TOGGLE BUTTON ─────────────────────────────────── */
 .theme-toggle-btn {
   width: 34px;
@@ -683,6 +780,43 @@ a:focus-visible, button:focus-visible {
   color: #f0ead6;           /* parchment — was olivewood in light */
 }
 
+/* ── FLOAT IMAGE FLIPPER ────────────────────────────────── */
+.float-flipper {
+  cursor: pointer;
+  perspective: 800px;
+}
+
+.float-flipper .float-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+  backface-visibility: hidden;
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+.float-flipper .float-img--front {
+  opacity: 1;
+  transform: scale(1);
+  position: relative; /* keeps the container sized */
+}
+
+.float-flipper .float-img--back {
+  opacity: 0;
+  transform: scale(1.04);
+}
+
+.float-flipper.peeking .float-img--front {
+  opacity: 0;
+  transform: scale(0.96);
+}
+
+.float-flipper.peeking .float-img--back {
+  opacity: 1;
+  transform: scale(1);
+}
 /* ── Nav pill ── */
 [data-theme="dark"] .nav-pill {
   background: rgba(31,35,24,0.88);
