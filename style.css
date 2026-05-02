@@ -601,7 +601,18 @@ a:focus-visible, button:focus-visible {
 
 @media (max-width:768px) {
   .about-inner { grid-template-columns:1fr; }
-  .about-img-float, .about-stat-pill { display:none; }
+.about-stat-pill { display: none; }
+
+.about-img-float {
+  position: relative;
+  bottom: auto;
+  right: auto;
+  width: 100%;
+  aspect-ratio: 1;
+  border: none;
+  border-radius: var(--radius-xl);
+  margin-top: var(--space-4);
+}
 }
 
 /* ── FOOTER WAVE ─────────────────────────────────────────── */
