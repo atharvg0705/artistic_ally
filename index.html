@@ -16,7 +16,7 @@
   <a href="#main" class="sr-only">Skip to content</a>
 
   <!-- ── LOGO ─────────────────────────────────────────────── -->
-  <a href="index.html" id="brand-logo" class="brand-logo" aria-label="Artistic Ally — Home">
+  <a href="landing.html" id="brand-logo" class="brand-logo" aria-label="Artistic Ally — Home">
     <img src="assets/logo.png" alt="Artistic Ally logo" width="80" height="80" loading="eager" decoding="async"/>
   </a>
 
@@ -50,7 +50,7 @@
   <nav class="nav-outer" aria-label="Main navigation">
     <div class="nav-pill">
       <div class="nav-links">
-        <a href="index.html" class="active">Home</a>
+        <a href="landing.html" class="active">Home</a>
         <a href="products.html">Shop</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
@@ -68,7 +68,7 @@
 
   <!-- ── MOBILE MENU ───────────────────────────────────────── -->
   <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
-    <a href="index.html" class="active">Home</a>
+    <a href="landing.html" class="active">Home</a>
     <a href="products.html">Shop</a>
     <a href="#about">About</a>
     <a href="#contact">Contact</a>
@@ -78,8 +78,11 @@
   <main id="main">
 
     <!-- ── HERO ─────────────────────────────────────────────── -->
-    <section class="hero">
-      <div class="hero-bg"></div>
+   <section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-bg-grain"></div>
+
+  
       <div class="hero-bg-grain"></div>
       <div class="container hero-inner">
         <div class="hero-text">
@@ -95,16 +98,22 @@
         </div>
         <div class="hero-visual reveal reveal-delay-2">
           <div class="hero-3d-card" role="img" aria-label="Featured product — The Hibiscus Ring II">
-            <div class="hero-3d-inner">
-              <img src="assets/hero.jpg"
-                alt="Featured product — artisan gold rings on natural background"
-                width="600" height="780" loading="eager" decoding="async"/>
-              <div class="hero-card-label">
-                <h3>The Hibiscus Ring II</h3>
-                <p>New drop · Rings</p>
+           <div class="hero-3d-inner">
+            <video
+                  class="hero-card-video"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                  poster="logo.png">
+                  <source src="assets/herovid.mp4" type="video/mp4">
+                </video>
+                <div class="hero-card-label">
+                  <h3>The Hibiscus Ring II</h3>
+                  <p>New drop · Rings</p>
+                </div>
               </div>
             </div>
-          </div>
           <div class="hero-float-pill" aria-hidden="true">New drop ✦</div>
           <div class="hero-float-badge" aria-hidden="true">Handcrafted · Limited</div>
         </div>
@@ -131,38 +140,66 @@
         <div class="carousel-track-wrap">
           <div class="carousel-track" role="list">
             <article class="carousel-item" role="listitem">
-              <img src="https://picsum.photos/seed/aa-ring-1/400/540" alt="The Roseline Ring" width="400" height="540" loading="lazy"/>
+              <img src="assets/pro13.jpeg" alt="The Oreo embrace" width="400" height="540" loading="lazy"/>
               <div class="carousel-item-label">
-                <span class="carousel-item-tag">Rings</span>
-                <h3 class="carousel-item-name">The Roseline Ring</h3>
+                <span class="carousel-item-tag"> Pet accessories </span>
+                <h3 class="carousel-item-name"> Oreo choker necklace  </h3>
               </div>
             </article>
             <article class="carousel-item" role="listitem">
-              <img src="https://picsum.photos/seed/aa-earring-1/400/540" alt="The Zoe Earrings" width="400" height="540" loading="lazy"/>
+              <img src="assets/pro4.jpeg" alt="The Zoe Earrings" width="400" height="540" loading="lazy"/>
               <div class="carousel-item-label">
-                <span class="carousel-item-tag">Earrings</span>
-                <h3 class="carousel-item-name">The Zoe Earrings</h3>
+                <span class="carousel-item-tag"> Chokers</span>
+                <h3 class="carousel-item-name">Sukoon-Ocean colorway </h3>
               </div>
             </article>
             <article class="carousel-item active-card" role="listitem">
-              <img src="https://picsum.photos/seed/aa-hibiscus/400/540" alt="The Hibiscus Ring II" width="400" height="540" loading="lazy"/>
+              <img src="assets/pro14.jpeg" alt="Bead Bracelets" width="400" height="540" loading="lazy"/>
               <div class="carousel-item-label">
-                <span class="carousel-item-tag">Rings</span>
-                <h3 class="carousel-item-name">The Hibiscus Ring II</h3>
+                <span class="carousel-item-tag"> Bracelets</span>
+                <h3 class="carousel-item-name"> Custom Bracelets </h3>
               </div>
             </article>
             <article class="carousel-item" role="listitem">
-              <img src="https://picsum.photos/seed/aa-hoops/400/540" alt="The Chubby Hoops" width="400" height="540" loading="lazy"/>
+              <img src="assets/pro1.jpeg" alt="The Chubby Hoops" width="400" height="540" loading="lazy"/>
               <div class="carousel-item-label">
                 <span class="carousel-item-tag">Earrings</span>
                 <h3 class="carousel-item-name">The Chubby Hoops</h3>
               </div>
             </article>
             <article class="carousel-item" role="listitem">
-              <img src="https://picsum.photos/seed/aa-chain/400/540" alt="The Atlas Chain" width="400" height="540" loading="lazy"/>
+              <img src="assets/pro17.jpeg" alt="bead rings" width="400" height="540" loading="lazy"/>
               <div class="carousel-item-label">
-                <span class="carousel-item-tag">Necklaces</span>
-                <h3 class="carousel-item-name">The Atlas Chain</h3>
+                <span class="carousel-item-tag"> Rings</span>
+                <h3 class="carousel-item-name"> Custom Rings </h3>
+              </div>
+            </article>
+            <article class="carousel-item" role="listitem">
+              <img src="assets/pro5.jpeg" alt="bead rings" width="400" height="540" loading="lazy"/>
+              <div class="carousel-item-label">
+                <span class="carousel-item-tag"> Pendants </span>
+                <h3 class="carousel-item-name"> Floral Pendants </h3>
+              </div>
+            </article>
+             <article class="carousel-item" role="listitem">
+              <img src="assets/pro11.jpeg" alt="bead rings" width="400" height="540" loading="lazy"/>
+              <div class="carousel-item-label">
+                <span class="carousel-item-tag"> Keychains</span>
+                <h3 class="carousel-item-name"> Custom Keychains </h3>
+              </div>
+            </article>
+               <article class="carousel-item" role="listitem">
+              <img src="assets/pro18.jpg" alt="bead rings" width="400" height="540" loading="lazy"/>
+              <div class="carousel-item-label">
+                <span class="carousel-item-tag"> Resin Art </span>
+                <h3 class="carousel-item-name"> Custom Resin Art </h3>
+              </div>
+            </article>
+              <article class="carousel-item" role="listitem">
+              <img src="assets/pro16.jpeg" alt="bead rings" width="400" height="540" loading="lazy"/>
+              <div class="carousel-item-label">
+                <span class="carousel-item-tag"> F1  </span>
+                <h3 class="carousel-item-name"> Custom F1 bracelet </h3>
               </div>
             </article>
           </div>
@@ -184,53 +221,63 @@
       </div>
     </section>
 
-    <!-- ── ABOUT ─────────────────────────────────────────────── -->
-    <section class="about-section" id="about" aria-label="About Artistic Ally">
-      <div class="about-bg-blob" aria-hidden="true"></div>
-      <div class="container about-inner">
-        <div class="about-visual reveal">
-          <div class="about-img-main">
-            <img src="https://picsum.photos/seed/aa-about-main/620/760" alt="Artisan crafting a piece by hand" width="620" height="760" loading="lazy"/>
-          </div>
-          <div class="about-img-float">
-            <img src="https://picsum.photos/seed/aa-about-float/400/400" alt="Close up of handmade jewellery detail" width="400" height="400" loading="lazy"/>
-          </div>
-          <div class="about-stat-pill">Est. 2024 · Mumbai</div>
+   <!-- ── ABOUT ─────────────────────────────────────────────── -->
+<section class="about-section" id="about" aria-label="About Artistic Ally">
+  <div class="about-bg-blob" aria-hidden="true"></div>
+  <div class="container about-inner">
+
+    <div class="about-visual reveal">
+      <!-- Video replaces the static about main image -->
+      <div class="about-img-main about-img-main--video">
+        <video
+          class="about-video"
+          autoplay
+          muted
+          loop
+          playsinline
+          poster="assets/about.jpg">
+          <source src="assets/about11.MP4" type="video/mp4">
+        </video>
+      </div>
+     <div class="about-img-float float-flipper" id="float-flipper">
+  <img class="float-img float-img--front" src="assets\about.png" alt="Close up of handmade jewellery detail" width="400" height="400" loading="lazy"/>
+  <img class="float-img float-img--back" src="assets\about1.png" alt="Another handmade detail" width="400" height="400" loading="lazy"/>
+</div>
+      <div class="about-stat-pill">Est. 2024 · Mumbai</div>
+    </div>
+
+    <div class="about-text">
+      <p class="about-eyebrow reveal">The story behind the brand</p>
+      <h2 class="about-title reveal reveal-delay-1">
+        Art you can<br/><em>hold, wear</em><br/>and feel.
+      </h2>
+      <p class="about-body reveal reveal-delay-2">Artistic Ally was born from a simple frustration: either you find mass-produced jewellery that looks like everyone else's, or you spend a fortune on true craft. We bridge that gap — small batch, genuinely handmade, and ordered through a simple conversation, not a checkout pipeline.</p>
+      <div class="about-values reveal reveal-delay-3">
+        <div class="about-value">
+          <div class="about-value-icon">🌿</div>
+          <p class="about-value-title">Slow craft</p>
+          <p class="about-value-desc">Every piece is made by hand in limited quantities. No factories, no shortcuts.</p>
         </div>
-        <div class="about-text">
-          <p class="about-eyebrow reveal">The story behind the brand</p>
-          <h2 class="about-title reveal reveal-delay-1">
-            Art you can<br/><em>hold, wear</em><br/>and feel.
-          </h2>
-          <p class="about-body reveal reveal-delay-2">Artistic Ally was born from a simple frustration: either you find mass-produced jewellery that looks like everyone else's, or you spend a fortune on true craft. We bridge that gap — small batch, genuinely handmade, and ordered through a simple conversation, not a checkout pipeline.</p>
-          <div class="about-values reveal reveal-delay-3">
-            <div class="about-value">
-              <div class="about-value-icon">🌿</div>
-              <p class="about-value-title">Slow craft</p>
-              <p class="about-value-desc">Every piece is made by hand in limited quantities. No factories, no shortcuts.</p>
-            </div>
-            <div class="about-value">
-              <div class="about-value-icon">✦</div>
-              <p class="about-value-title">Custom orders</p>
-              <p class="about-value-desc">Have an idea? Message us and we'll build it with you personally.</p>
-            </div>
-            <div class="about-value">
-              <div class="about-value-icon">📦</div>
-              <p class="about-value-title">Gift-ready</p>
-              <p class="about-value-desc">Every order ships in premium recyclable packaging, ready to gift.</p>
-            </div>
-            <div class="about-value">
-              <div class="about-value-icon">💬</div>
-              <p class="about-value-title">Chat-first</p>
-              <p class="about-value-desc">Order on Instagram, WhatsApp, or Telegram. Simple and personal.</p>
-            </div>
-          </div>
+        <div class="about-value">
+          <div class="about-value-icon">✦</div>
+          <p class="about-value-title">Custom orders</p>
+          <p class="about-value-desc">Have an idea? Message us and we'll build it with you personally.</p>
+        </div>
+        <div class="about-value">
+          <div class="about-value-icon">📦</div>
+          <p class="about-value-title">Gift-ready</p>
+          <p class="about-value-desc">Every order ships in premium recyclable packaging, ready to gift.</p>
+        </div>
+        <div class="about-value">
+          <div class="about-value-icon">💬</div>
+          <p class="about-value-title">Chat-first</p>
+          <p class="about-value-desc">Order on Instagram, WhatsApp, or Telegram. Simple and personal.</p>
         </div>
       </div>
-    </section>
+    </div>
 
-  </main>
-
+  </div>
+</section>
   <!-- ── FOOTER WAVE ───────────────────────────────────────── -->
   <div class="footer-wave-wrap" aria-hidden="true">
     <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
@@ -246,15 +293,14 @@
           <div class="footer-brand-name">Artistic Ally</div>
           <p class="footer-brand-desc">Handcrafted with intention. Order directly through Instagram, WhatsApp, or Telegram — no cart needed.</p>
           <div class="footer-socials">
-            <a href="#" class="footer-social-btn" aria-label="Instagram">IG</a>
+            <a href="https://www.instagram.com/artistic__ally/" class="footer-social-btn" aria-label="Instagram">IG</a>
             <a href="#" class="footer-social-btn" aria-label="WhatsApp">WA</a>
-            <a href="#" class="footer-social-btn" aria-label="Telegram">TG</a>
           </div>
         </div>
         <div>
           <p class="footer-col-title">Explore</p>
           <div class="footer-links">
-            <a href="index.html">Home</a>
+            <a href="landing.html">Home</a>
             <a href="products.html">All Products</a>
             <a href="#about">Our Story</a>
           </div>
@@ -271,16 +317,17 @@
         <div>
           <p class="footer-col-title">Order</p>
           <div class="footer-links">
-            <a href="#">Instagram DM</a>
-            <a href="#">WhatsApp</a>
-            <a href="#">Telegram</a>
-            <a href="#">Email us</a>
+            <a href="https://www.instagram.com/artistic__ally/" target="_blank" rel="noopener">Instagram DM</a>
+            <a href="https://wa.me/917498864771" target="_blank" rel="noopener">WhatsApp</a>
+            <a href="tel:+918425815182">Contact</a>
+            <a href="mailto:atharvg0705@gmail.com">Email us</a>
           </div>
+        </div>
         </div>
       </div>
       <div class="footer-bottom">
         <span>© 2026 Artistic Ally. All rights reserved.</span>
-        <span>Made with care in Mumbai 🌿</span>
+        <span>Made with care in KoparKhairne,Navi-Mumbai 🌿</span>
       </div>
     </div>
   </footer>
